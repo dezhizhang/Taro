@@ -16,7 +16,9 @@ class Index extends Component {
   }
 
   componentDidMount () {
-    getTopicList ();
+    getTopicList().then((res) => {
+      console.log(res);
+    })
   }
 
   componentWillUnmount () { }
