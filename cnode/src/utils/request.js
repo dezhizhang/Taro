@@ -7,7 +7,7 @@ export function getJSON(url,data) {
 }
 //post请求方法
 export function postJSON(url,data) {
-
+    return Taro.request({url:url,data:data,method:'POST'});
 }
 //获取请题列表
 export async function getTopicList() {
