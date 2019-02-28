@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text,Button,Input } from '@tarojs/components'
 import './index.less'
 
 export default class Index extends Component {
@@ -7,7 +7,7 @@ export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name:'张德志你好'
+      name:'好利来传媒'
     }
   }
 
@@ -25,16 +25,12 @@ export default class Index extends Component {
 
   componentDidHide () { }
 
-  handleClick = () => {
-    this.setState({
-      name:'123'
-    })
-  }
+ 
 
   render () {
     return (
       <View className='index'>
-        <Text onClick={this.handleClick}>{this.state.name}</Text>
+        
       </View>
     )
   }
