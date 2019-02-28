@@ -4,6 +4,13 @@ import './index.less'
 
 export default class Index extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      name:'张德志你好'
+    }
+  }
+
   config = {
     navigationBarTitleText: '首页'
   }
@@ -18,10 +25,16 @@ export default class Index extends Component {
 
   componentDidHide () { }
 
+  handleClick = () => {
+    this.setState({
+      name:'123'
+    })
+  }
+
   render () {
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
+        <Text onClick={this.handleClick}>{this.state.name}</Text>
       </View>
     )
   }
