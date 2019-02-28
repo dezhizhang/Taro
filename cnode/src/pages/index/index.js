@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text } from '@tarojs/components';
+import { getTopicList } from '../../utils/request';
 import './index.less'
 
 
@@ -12,6 +13,10 @@ class Index extends Component {
 
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
+  }
+
+  componentDidMount () {
+    getTopicList ();
   }
 
   componentWillUnmount () { }
