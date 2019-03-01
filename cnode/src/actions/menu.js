@@ -1,25 +1,10 @@
-import {
-    ADD,
-    MINUS
-  } from '../constants/counter'
-  
-  export const add = () => {
-    return {
-      type: ADD
-    }
-  }
+
+  import { SHOWDRAWER,HIDEDRAWER,CHANGECATE } from '../constants/menu' 
   export const handleDrawer = () => {
     return {
-      type: MINUS
+      type: SHOWDRAWER
     }
   }
-  
-  // 异步的action
-  export function asyncAdd () {
-    return dispatch => {
-      setTimeout(() => { 
-        dispatch(add())
-      }, 2000)
-    }
-  }
+
+
   

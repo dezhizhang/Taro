@@ -1,0 +1,3 @@
+export const SHOWDRAWER = 'SHOWDRAWER'
+export const HIDEDRAWER = 'HIDEDRAWER'
+export const CHANGECATE = 'CHANGECATE' 

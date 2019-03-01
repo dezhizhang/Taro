@@ -1,4 +1,7 @@
 
+
+import { SHOWDRAWER,HIDEDRAWER,CHANGECATE } from '../constants/menu'
+
 const MENU_STATE = {
     cataData: [
         {key:'all',value:'全部'},
@@ -15,11 +18,11 @@ const MENU_STATE = {
 
 export default function menu (state = MENU_STATE, action) {
   switch (action.type) {
-    case 'showDrawer':
+    case SHOWDRAWER:
         return {...state,showDrawer:true};
-    case 'hideDrawer':
+    case HIDEDRAWER:
         return {...state,showDrawer:false};
-    case 'changeCata':
+    case CHANGECATE:
         return {...state,showDrawer:action.currentCata}
     default:
         return {...state}
