@@ -1,6 +1,7 @@
 import Taro,{ Component, request } from '@tarojs/taro';
 import { View,Text,Button,Image } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
+import { AtDrawer } from 'taro-ui'
 import { handleDrawer } from '../../actions/menu';
 import cata from '../../assets/imgs/cata.png';
 import login from '../../assets/imgs/login.png'
@@ -38,6 +39,12 @@ class Menu extends Component {
                     <Text>{currentCata.value}</Text>
                     <Image className='login-image'  src={ login }/>
                 </View>
+                <AtDrawer 
+                    show={this.props.menu.showDrawer} 
+                    mask={true}
+                    items={['菜单1', '菜单2']}
+                />
+                
             </View>
         )
     }
