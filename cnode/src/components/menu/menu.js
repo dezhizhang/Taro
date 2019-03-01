@@ -10,9 +10,11 @@ class Menu extends Component {
    render() {
        return (
         <View className="topicList-menu">
-           <Image src={ cata }/>
-           <Text></Text>
-           <Image src={ login }/>
+           <View className="topoc-wrapper">
+                <Image className="cata-image" src={ cata }/>
+                <Text>全部</Text>
+                <Image className='login-image'  src={ login }/>
+           </View>
         </View>
        )
    }
