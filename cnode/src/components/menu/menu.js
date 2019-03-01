@@ -2,7 +2,7 @@ import Taro,{ Component, request } from '@tarojs/taro';
 import { View,Text,Button,Image } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import { AtDrawer } from 'taro-ui'
-import { handleDrawer } from '../../actions/menu';
+import { handleDrawer,handleCata,handleHideDrawer } from '../../actions/menu';
 import cata from '../../assets/imgs/cata.png';
 import login from '../../assets/imgs/login.png'
 import './menu.less'
@@ -11,7 +11,7 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentCata:{}
+          
         }
     }
     //页面加载
@@ -20,18 +20,30 @@ class Menu extends Component {
     }
     //获取数据
     loadData = () => {
-        let menu = this.props.menu;
-        this.setState({
-            currentCata:menu.currentCata
-        })
+        
     }
     //显示抽屉
     showDrawer = () => {
        this.props.handleDrawer &&  this.props.handleDrawer()
 
     }
+    //获取items
+    getItmes = (data) => {
+        return data.map(item => item.value)
+    }
+    //点击分类时触发
+    handleItem = (index) => {
+        let { cataData } = this.props.menu;
+        let currentCata = cataData[index];
+        this.props.handleCata && this.props.handleCata(currentCata);
+    }
+    //关闭时角发事件
+    handleClose = () => {
+       this.props.handleHideDrawer && this.props.handleHideDrawer();
+    }
     render() {
-        let { currentCata } = this.state
+        let { currentCata,cataData } = this.props.menu;
+        let items = this.getItmes(cataData)  //分类列表
         return (
             <View className="topicList-menu">
                 <View className="topoc-wrapper">
@@ -42,7 +54,9 @@ class Menu extends Component {
                 <AtDrawer 
                     show={this.props.menu.showDrawer} 
                     mask={true}
-                    items={['菜单1', '菜单2']}
+                    items={items}
+                    onItemClick={this.handleItem}
+                    onClose={this.handleClose}
                 />
                 
             </View>
@@ -51,10 +65,9 @@ class Menu extends Component {
 }
 
 const mapStateToProps = (state) => {
-
     return {
         menu:state.menu
     }
 }
 
-export default connect(mapStateToProps,{ handleDrawer,})(Menu);
+export default connect(mapStateToProps,{ handleDrawer,handleCata,handleHideDrawer})(Menu);

@@ -17,13 +17,14 @@ const MENU_STATE = {
 }
 
 export default function menu (state = MENU_STATE, action) {
+
   switch (action.type) {
     case SHOWDRAWER:
         return {...state,showDrawer:true};
     case HIDEDRAWER:
         return {...state,showDrawer:false};
     case CHANGECATE:
-        return {...state,showDrawer:action.currentCata}
+        return {...state,currentCata:action.payload}
     default:
         return {...state}
   }
