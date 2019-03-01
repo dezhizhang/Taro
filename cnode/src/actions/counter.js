@@ -8,7 +8,7 @@ export const add = () => {
     type: ADD
   }
 }
-export const minus = () => {
+export const handleDrawer = () => {
   return {
     type: MINUS
   }

@@ -1,23 +1,53 @@
 import Taro,{ Component, request } from '@tarojs/taro';
 import { View,Text,Button,Image } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
+import { handleDrawer } from '../../actions/menu';
 import cata from '../../assets/imgs/cata.png';
 import login from '../../assets/imgs/login.png'
 import './menu.less'
 
-
 class Menu extends Component {
-   render() {
-       return (
-        <View className="topicList-menu">
-           <View className="topoc-wrapper">
-                <Image className="cata-image" src={ cata }/>
-                <Text>全部</Text>
-                <Image className='login-image'  src={ login }/>
-           </View>
-        </View>
-       )
-   }
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentCata:{}
+        }
+    }
+    //页面加载
+    componentDidMount() {
+        this.loadData()
+    }
+    //获取数据
+    loadData = () => {
+        let menu = this.props.menu;
+        this.setState({
+            currentCata:menu.currentCata
+        })
+    }
+    //显示抽屉
+    showDrawer = () => {
+       this.props.handleDrawer &&  this.props.handleDrawer()
+
+    }
+    render() {
+        let { currentCata } = this.state
+        return (
+            <View className="topicList-menu">
+                <View className="topoc-wrapper">
+                    <Image onClick={this.showDrawer} className="cata-image" src={ cata }/>
+                    <Text>{currentCata.value}</Text>
+                    <Image className='login-image'  src={ login }/>
+                </View>
+            </View>
+        )
+    }
 }
 
-export default Menu;
+const mapStateToProps = (state) => {
+
+    return {
+        menu:state.menu
+    }
+}
+
+export default connect(mapStateToProps,{ handleDrawer,})(Menu);
