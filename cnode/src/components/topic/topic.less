@@ -1,4 +1,28 @@
 .scroll-view{
     height: 700px;
+    .topic-list{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        .acatar_image{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .topic-right{
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            .topic-title{
+                font-size: 30px;
+            }
+            .topic-info{
+                font-size: 28px;
+                color: #999;
+                justify-content: space-between;
+            }
+        }
+    }
 
 }

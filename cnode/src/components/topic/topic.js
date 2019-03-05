@@ -28,9 +28,19 @@ class Topic extends Component {
                 {
                     list.map((item,index) => {
                         return (
-                            <View key={index}>
-                                <Image src={item.author ? item.author.avatar_url:''}/>
-
+                            <View key={index} className="topic-list">
+                                <Image className="acatar_image" src={item.author ? item.author.avatar_url:''}/>
+                                <View className='topic-right'>
+                                    <View className="topic-title">
+                                        <Text>置顶</Text>
+                                        <Text>{item.title}</Text>
+                                    </View>
+                                    <View className="topic-info">
+                                        <Text>{item.author? item.author.loginname:''}</Text>
+                                        <Text>{item.reply_count}/{item.visit_count}</Text>
+                                        <Text>创建时间：{item.create_at}</Text>
+                                    </View>
+                                </View>
                             </View>
                         )
                     })
