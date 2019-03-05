@@ -1,2 +1,4 @@
-export const GETTOPICLIST = 'GETTOPICLIST'
+export const GETTOPICLIST = 'GETTOPICLIST';
+export const GETNEXTLIST = 'GETNEXTLIST';
+
 
