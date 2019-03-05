@@ -1,16 +1,25 @@
-import Taro,{ Component } from '@tarojs/taro';
-import { View,Text,Button } from '@tarojs/components';
+import Taro,{ Component, connectSocket } from '@tarojs/taro';
+import { ScrollView,Text,Button } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
-import { getTopicList } from '../../actions/topic'
+import { getTopicList } from '../../actions/topic';
+
+
 
 class Topic extends Component {
-    handleChange = () => {
-         this.props.getTopicList();
+    //获取数据
+    componentDidMount() {
+        let { limit } = this.props.topic
+        this.props.getTopicList({limit});
     }
     render() {
-        return (<View onClick={this.handleChange}>
-            1111
-        </View>)
+        let { list } = this.props;
+        return (
+            <ScrollView>
+               {
+                   
+               }
+            </ScrollView>
+        )
     }
 }
 
@@ -20,4 +29,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{getTopicList})(Topic);
+export default connect(mapStateToProps,{ getTopicList })(Topic);
