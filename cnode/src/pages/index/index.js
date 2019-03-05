@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components';
 import './index.less'
 import Menu from '../../components/menu/menu';
+import Topic from '../../components/topic/topic';
 
 
 class Index extends Component {
@@ -28,6 +29,7 @@ class Index extends Component {
     return (
       <View className='index'>
         <Menu/>
+        <Topic/>
       </View>
     )
   }
