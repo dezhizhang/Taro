@@ -10,7 +10,7 @@ export default function topic(state=TOPIC_STATE,action) {
         case GETTOPICLIST:
         return {...state,list:action.list}
         case GETNEXTLIST:
-        return {...state,list:state.list.concat(action.list)}
+        return {...state,list:state.list.concat(action.list),page:action.page}
         default:
         return {...state}
     }

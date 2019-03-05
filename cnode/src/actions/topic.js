@@ -17,7 +17,10 @@ export const getNextList = (params) => {
     return async dispatch => {
         let result = await getJSON(api.getTopics,params);
         if(result.data.success) {
-            dispatch({type:GETNEXTLIST,list:result.data.data})
+            if(result.data.data.length > 0){
+                dispatch({type:GETNEXTLIST,list:result.data.data,page:params.page})
+            }
+          
         }
     }
 }

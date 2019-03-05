@@ -15,9 +15,7 @@ class Topic extends Component {
     //解发分页请求
     handleToLower = () => {
         let {page,limit} = this.props.topic;
-        page += page + 1;
-        this.props.getNextList({page,limit})
-
+        this.props.getNextList({page:(page + 1),limit})
     }
     render() {
         let { list } = this.props.topic
