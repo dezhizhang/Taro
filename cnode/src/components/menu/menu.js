@@ -35,7 +35,11 @@ class Menu extends Component {
     handleItem = (index) => {
         let { cataData } = this.props.menu;
         let currentCata = cataData[index];
-        this.props.handleCata && this.props.handleCata(currentCata);
+        if(currentCata.key !=this.props.menu.currentCata.key) {
+            this.props.handleCata && this.props.handleCata(currentCata);
+        }
+
+
     }
     //关闭时角发事件
     handleClose = () => {
@@ -58,7 +62,6 @@ class Menu extends Component {
                     onItemClick={this.handleItem}
                     onClose={this.handleClose}
                 />
-                
             </View>
         )
     }
