@@ -38,12 +38,16 @@ class Menu extends Component {
         if(currentCata.key !=this.props.menu.currentCata.key) {
             this.props.handleCata && this.props.handleCata(currentCata);
         }
-
-
     }
     //关闭时角发事件
     handleClose = () => {
        this.props.handleHideDrawer && this.props.handleHideDrawer();
+    }
+    //用户登录
+    handleLogin = () => {
+        Taro.navigateTo({
+            url: '/pages/login/login'
+        })
     }
     render() {
         let { currentCata,cataData } = this.props.menu;
@@ -53,7 +57,7 @@ class Menu extends Component {
                 <View className="topoc-wrapper">
                     <Image onClick={this.showDrawer} className="cata-image" src={ cata }/>
                     <Text>{currentCata.value}</Text>
-                    <Image className='login-image'  src={ login }/>
+                    <Image onClick={this.handleLogin} className='login-image'  src={ login }/>
                 </View>
                 <AtDrawer 
                     show={this.props.menu.showDrawer} 
