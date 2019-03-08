@@ -25,3 +25,12 @@ export const getNextList = (params) => {
     }
 }
 
+export const getTopicInfo = (params) => {
+    return async dispatch => {
+        let result = await getJSON(api.getTopicDetail+params.id,params);
+        
+    }
+}
+
+
+
