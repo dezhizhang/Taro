@@ -2,7 +2,7 @@ import Taro,{ Component } from '@tarojs/taro';
 import { connect } from '@tarojs/redux';
 import Banner from '../../components/banner/banner'
 import './login.less'
-import { View,Text,Button,Image,Input,Swiper,SwiperItem  } from '@tarojs/components';
+import { View,Text,Button,Image,Input,Icon  } from '@tarojs/components';
 import { AtInput } from 'taro-ui'
 
 
@@ -32,7 +32,22 @@ class Login extends Component {
                 <View className="banner">
                     <Banner/>
                 </View>
-                <View className="tag"></View>
+                <View className="tag">
+                    <View className="tag-content">
+                        <View className="tag-item">
+                            <Icon  color='#994656' className="tag-icon" size='14' type='success'/>
+                            <Text  className="tag-text">网易自营品牌</Text>
+                        </View>
+                        <View className="tag-item">
+                            <Icon color='#994656' className="tag-icon" size='14' type='success'/>
+                            <Text className="tag-text">30天无忧退换货</Text> 
+                        </View>
+                        <View className="tag-item">
+                            <Icon color='#994656' className="tag-icon" size='14' type='success'/>
+                            <Text className="tag-text">48小时快速退款</Text> 
+                        </View>
+                    </View>
+                </View>
                 <View className="main">
                     <View className="list"></View>
                 </View>

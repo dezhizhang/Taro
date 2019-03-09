@@ -63,7 +63,31 @@
         height: 72px;
         line-height: 72px;
         overflow: hidden;
-        background: pink;
+        padding: 0px 12px;
+        background: #fff;
+        .tag-content{
+            width: 100%;
+            height: 100%;
+            line-height: 72px;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            .tag-item{
+                flex: 1;
+                height: 100%;
+                line-height: 72px;
+                .tag-icon{
+                    line-height: 72px;
+                    margin-top: 10px;
+                }
+                .tag-text{
+                    line-height: 72px;
+                    font-size: 26px;
+                    color: #994656;
+                    margin-left: 16px;
+                }
+            }
+        }
     }
     .main{
         padding: 30px 40px;
