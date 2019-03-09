@@ -2,12 +2,12 @@ import Taro,{ Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
 import Banner from '../../components/banner/banner'
 import ListItem from '../../components/list_item/list_item';
-import './login.less'
+import './home.less'
 import { View,Text,Button,Image,Input,Icon  } from '@tarojs/components'
 import { AtInput } from 'taro-ui'
 
 
-class Login extends Component {
+class Home extends Component {
     config = {
         navigationBarTitleText:"网易严选"
     }
@@ -59,5 +59,5 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Home;
 

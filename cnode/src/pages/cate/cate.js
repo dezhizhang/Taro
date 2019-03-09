@@ -1,11 +1,11 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components';
-import './index.less'
+import './cate.less'
 import Menu from '../../components/menu/menu';
 import Topic from '../../components/topic/topic';
 
 
-class Index extends Component {
+class Cate extends Component {
 
     config = {
     navigationBarTitleText: '首页'
@@ -35,4 +35,4 @@ class Index extends Component {
   }
 }
 
-export default Index
+export default Cate
