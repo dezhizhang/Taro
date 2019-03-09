@@ -29,8 +29,10 @@ class Login extends Component {
                 <View className="nav">
                     <View className='nav-title'>推荐</View>
                 </View>
-                <View className="banner">
-                    
+                <View className="banner"></View>
+                <View className="tag"></View>
+                <View className="main">
+                    <View className="list"></View>
                 </View>
             </View>
             )
