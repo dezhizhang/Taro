@@ -5,7 +5,8 @@ import ListItem from '../../components/list_item/list_item';
 import './home.less'
 import { View,Text,Button,Image,Input,Icon  } from '@tarojs/components'
 import { AtInput } from 'taro-ui'
-
+import scan from '../../assets/imgs/scan.png';
+import message from '../../assets/imgs/message.png';
 
 class Home extends Component {
     config = {
@@ -20,7 +21,10 @@ class Home extends Component {
             <View className="wrapper">
                 <View className="header">
                     <View className="header-left">
-                        <Text>扫一扫</Text>
+                        <View className="header-icon">
+                            <Image className="header-image" src={scan}/>
+                        </View>
+                        <View className="header-text"><Text >扫一扫</Text></View>
                     </View>
                     <View className="header-center">
                         <Input className='header-seach' placeholder="🔍搜索商品，共10628款好物" type='text'/>
@@ -28,7 +32,7 @@ class Home extends Component {
                     <View className="header-right"></View>
                 </View>
                 <View className="nav">
-                    <View className='nav-title'>推荐</View>
+                    <View>1111</View>
                 </View>
                 <View className="banner">
                     <Banner/>
