@@ -1,8 +1,9 @@
-import Taro,{ Component } from '@tarojs/taro';
-import { connect } from '@tarojs/redux';
+import Taro,{ Component } from '@tarojs/taro'
+import { connect } from '@tarojs/redux'
 import Banner from '../../components/banner/banner'
+import ListItem from '../../components/list_item/list_item';
 import './login.less'
-import { View,Text,Button,Image,Input,Icon  } from '@tarojs/components';
+import { View,Text,Button,Image,Input,Icon  } from '@tarojs/components'
 import { AtInput } from 'taro-ui'
 
 
@@ -49,7 +50,9 @@ class Login extends Component {
                     </View>
                 </View>
                 <View className="main">
-                    <View className="list"></View>
+                    <View className="list">
+                       <ListItem/>
+                    </View>
                 </View>
             </View>
             )
