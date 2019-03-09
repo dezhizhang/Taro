@@ -1,9 +1,9 @@
 import Taro,{ Component } from '@tarojs/taro';
-import { View,Text,Button,Image,Input,Swiper,SwiperItem  } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
-import { AtInput } from 'taro-ui'
+import Banner from '../../components/banner/banner'
 import './login.less'
-import loginBg from '../../assets/imgs/bg.png';
+import { View,Text,Button,Image,Input,Swiper,SwiperItem  } from '@tarojs/components';
+import { AtInput } from 'taro-ui'
 
 
 class Login extends Component {
@@ -29,7 +29,9 @@ class Login extends Component {
                 <View className="nav">
                     <View className='nav-title'>推荐</View>
                 </View>
-                <View className="banner"></View>
+                <View className="banner">
+                    <Banner/>
+                </View>
                 <View className="tag"></View>
                 <View className="main">
                     <View className="list"></View>
