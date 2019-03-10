@@ -64,7 +64,15 @@
                
             </div>
         </div>
-        <div id="content"></div>
+        <div id="content">
+            <ul id="list">
+                <li id="home" class="liList"></li>
+                <li id="course" class="liList"></li>
+                <li id="works" class="liList"></li>
+                <li id="about" class="liList"></li>
+                <li id="tram" class="liList"></li>
+            </ul>
+        </div>
     </div>
     <script>
      //获取id
@@ -75,8 +83,13 @@
         }
 
         let oNav = $('nav');
+        let oList =$('list');
         let aLiNav = oNav.getElementsByTagName('li');
         let oArrow = document.getElementById('arrow');
+        let aLiList = getByClass(oList,'liList');
+      
+
+        
         bindNav();
 
         function bindNav() {
@@ -102,6 +115,29 @@
             oArrow.style.left = aLiNav[index].offsetLeft + aLiNav[index].offsetWidth /2 - oArrow.offsetWidth / 2 +'px'
 
         }
+
+        //获取可视区的宽
+        function vviewWidth() {
+            return window.innerWidth || document.documentElement.clientWidth;
+        }
+        //获取可视区的高
+        function viewHeight() {
+            return window.innerWidth || document.documentElement.clientHeight;
+        }
+
+        //获取class
+        function getByClass(oParent,sClass) {
+            let aElem = oParent.getElementsByTagName('*');
+            let arr = [];
+            for(let i=0;i<aElem.length;i++) {
+                if(aElem[i].className ==sClass) {
+                    arr.push(aElem[i])
+                }
+            }
+            return arr;
+        }
+
+
 
      }
     </script>
