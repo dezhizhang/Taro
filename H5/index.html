@@ -16,12 +16,13 @@
         .clear:after{ content: '';display: block;clear: both;}
         #main{width: 100%;height: 100%;}
         #header{width: 100%;height: 80px;background: #ffff;}
-        #header-main{ width: 1100px;margin: 0 auto; height: 80px; overflow: hidden;}
+        #header-main{ width: 1100px;margin: 0 auto; height: 80px; position: relative;}
         #logo{display: block;height: 100%;line-height: 80px; float: left;}
         #nav{float: right; margin-top: 50px;}
         #nav li{ float: left; position: relative; margin-left: 40px;}
         #nav li .up{ position: absolute;top: 0; left: 0;color: #000; width: 0%;overflow: hidden;}
         #nav li:hover .up{width: 100%;transition: ease-out 0.5s}
+        #arrow{width: 21px;height: 11px; background:url('./imgs/menuIndicator.png') no-repeat;position: absolute;left: 74%;bottom: -11px; z-index: 10; transition: 0.5s left;}
         #content{width: 100%;height: 400px;background: red;}
     </style>
 </head>
@@ -57,7 +58,10 @@
                             <div>Tream</div>
                         </a>
                     </li>
+                   
                 </ul>
+                <div id="arrow"></div>
+               
             </div>
         </div>
         <div id="content"></div>
@@ -72,11 +76,14 @@
 
         let oNav = $('nav');
         let aLiNav = oNav.getElementsByTagName('li');
+        let oArrow = document.getElementById('arrow');
         bindNav();
 
         function bindNav() {
             let oDiv = aLiNav[0].getElementsByTagName('div')[0];
             oDiv.style.width = '100%';
+            oArrow.style.left = aLiNav[0].offsetLeft + aLiNav[0].offsetWidth /2 - oArrow.offsetWidth / 2 +'px'
+
             for(let i=0;i<aLiNav.length;i++){
                 aLiNav[i].index = i;
                 aLiNav[i].onclick = function() {
@@ -92,6 +99,8 @@
             }
             let oDiv = aLiNav[index].getElementsByTagName('div')[0];
             oDiv.style.width = '100%';
+            oArrow.style.left = aLiNav[index].offsetLeft + aLiNav[index].offsetWidth /2 - oArrow.offsetWidth / 2 +'px'
+
         }
 
      }
