@@ -21,6 +21,7 @@
         #nav{float: right; margin-top: 50px;}
         #nav li{ float: left; position: relative; margin-left: 40px;}
         #nav li .up{ position: absolute;top: 0; left: 0;color: #000; width: 0%;overflow: hidden;}
+        #nav li:hover .up{width: 100%;transition: ease-out 0.5s}
         #content{width: 100%;height: 400px;background: red;}
     </style>
 </head>
@@ -61,5 +62,34 @@
         </div>
         <div id="content"></div>
     </div>
+    <script>
+     //获取id
+     window.onload = function() {
+         //获取id
+        function $(id) {
+             return document.getElementById(id);
+        }
+
+        let oNav = $('nav');
+        let aLiNav = oNav.getElementsByTagName('li');
+        bindNav();
+
+        function bindNav() {
+            let oDiv = aLiNav[0].getElementsByTagName('div')[0];
+            oDiv.style.width = '100%';
+            for(let i=0;i<aLiNav.length;i++){
+                aLiNav[i].onclick = function() {
+                    for(let j=0;j<aLiNav.length;j++){
+                        let oDiv = aLiNav[j].getElementsByTagName('div')[0];
+                        oDiv.style.width = '';
+                    }
+                    let oDiv = this.getElementsByTagName('div')[0];
+                    oDiv.style.width = '100%';
+                }
+            }
+        }
+
+     }
+    </script>
 </body>
 </html>
