@@ -78,15 +78,20 @@
             let oDiv = aLiNav[0].getElementsByTagName('div')[0];
             oDiv.style.width = '100%';
             for(let i=0;i<aLiNav.length;i++){
+                aLiNav[i].index = i;
                 aLiNav[i].onclick = function() {
-                    for(let j=0;j<aLiNav.length;j++){
-                        let oDiv = aLiNav[j].getElementsByTagName('div')[0];
-                        oDiv.style.width = '';
-                    }
-                    let oDiv = this.getElementsByTagName('div')[0];
-                    oDiv.style.width = '100%';
+                    toMove(this.index)
                 }
             }
+        }
+
+        function toMove(index) {
+            for(let j=0;j<aLiNav.length;j++){
+                let oDiv = aLiNav[j].getElementsByTagName('div')[0];
+                oDiv.style.width = '';
+            }
+            let oDiv = aLiNav[index].getElementsByTagName('div')[0];
+            oDiv.style.width = '100%';
         }
 
      }
