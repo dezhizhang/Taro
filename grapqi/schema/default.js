@@ -1,5 +1,5 @@
 const db = require('../model/db');
-const { GraphQLObjectType,GraphQLString } = require('graphql');
+const { GraphQLObjectType,GraphQLString,GraphQLSchema } = require('graphql');
 
 let AdminSchema = new GraphQLObjectType({
     name:'admin',
@@ -15,16 +15,17 @@ let AdminSchema = new GraphQLObjectType({
 let RootSchema = new GraphQLObjectType({
     name:'root',
     fields:{
-        type:AdminSchema,
-        args:{id:{type:GraphQLString}},
-        async resolve(parent,args) {
-            let admin = await db.find('admin',{});
-            return admin[0];
+        oneAdminList:{
+            type:AdminSchema,
+            args:{id:{type:GraphQLString}},
+            async resolve(parent,args) {
+                let result = await db.find('admin',{});
+                return result[0]
+            }
         }
     }
 });
-
-module.exports = {
-    
-}
+module.exports = new GraphQLSchema({
+    query:RootSchema
+})
 
