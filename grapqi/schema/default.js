@@ -20,6 +20,8 @@ let RootSchema = new GraphQLObjectType({
             args:{id:{type:GraphQLString}},
             async resolve(parent,args) {
                 let result = await db.find('admin',{});
+                console.log(result);
+                
                 return result[0]
             }
         }

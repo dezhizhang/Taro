@@ -17,7 +17,7 @@ app.get('/',(req,res) => {
 
 app.get('/getNavList',async(req,res) => {
     let result = await db.find('admin',{});
-    console.log(result);
+    
 
 })
 
